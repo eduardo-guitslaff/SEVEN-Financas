@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💰 Banco Guitslaff</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+
+<body>
+  <header>
+    <h1>💰SEVEN Finanças</h1>
+       <div class="perfil-header" id="perfilHeader">
+    <div class="avatar">T</div>
+    <span id="nomeUsuarioHeader">Ti</span>
+  </div>
+    <button id="modoTema"><i class="fa-solid fa-moon"></i></button>
+  </header>
+
+  <main class="container">
+    <!-- SALDO ATUAL -->
+    <section class="card saldo-card">
+      <h2><i class="fa-solid fa-wallet"></i> Saldo Atual</h2>
+      <p id="saldo">R$ 0,00</p>
+      
+      <div class="saldo-resumo">
+        <span class="entrada">Entradas: R$ 0,00</span>
+        <span class="saida">Saídas: R$ 0,00</span>
+      </div>
+ 
+    </section>
+
+    <!-- RESUMO FINANCEIRO -->
+    <section class="card">
+      <h2><i class="fa-solid fa-chart-pie"></i> Resumo Financeiro</h2>
+      <canvas id="graficoFinanceiro"></canvas>
+      <div class="btn-group">
+        <button class="btn-grafico" data-tipo="resumo">Resumo</button>
+        <button class="btn-grafico" data-tipo="mensal">Mensal</button>
+      </div>
+    </section>
+
+    <!-- ADICIONAR TRANSAÇÃO -->
+    <section class="card form-section">
+      <h2><i class="fa-solid fa-plus"></i> Adicionar Transação</h2>
+      <input type="text" id="descricao" placeholder="Descrição" />
+      <input type="number" id="valor" placeholder="Valor" />
+
+      <select id="tipo">
+      
+        <option value="">Selecione o tipo</option>
+        <option value="entrada">Entrada</option>
+        <option value="saida">Saída</option>
+        
+      </select>
+      <button id="btnAdd">
+        <i class="fa-solid fa-circle-plus"></i> Adicionar
+      </button>
+    </section>
+
+    <!-- BOTÃO MOSTRAR/OCULTAR FILTROS (apenas mobile) -->
+    <button id="toggleFiltrosBtn" class="toggle-filtros-btn">
+      <i class="fa-solid fa-magnifying-glass"></i> Mostrar Filtros
+    </button>
+
+    <!-- FILTROS -->
+    <section class="card filtros" id="filtrosSection">
+      <h2><i class="fa-solid fa-magnifying-glass"></i> Filtros de Transações</h2>
+      <div class="filtros-grid">
+        <div class="filtro-item">
+          <label for="filtro">Tipo:</label>
+          <select id="filtro">
+            <option value="todas">Todas</option>
+            <option value="entrada">Entradas</option>
+            <option value="saida">Saídas</option>
+          </select>
+        </div>
+
+        <div class="filtro-item">
+          <label for="dataInicio">De:</label>
+          <input type="date" id="dataInicio" />
+        </div>
+
+        <div class="filtro-item">
+          <label for="dataFim">Até:</label>
+          <input type="date" id="dataFim" />
+        </div>
+
+        <button id="btnFiltrarData" class="btn-filtrar">
+          <i class="fa-solid fa-filter"></i> Filtrar
+        </button>
+      </div>
+    </section>
+
+    <!-- LISTA DE TRANSAÇÕES -->
+    <section class="card">
+      <h2><i class="fa-solid fa-list"></i> Lista de Transações</h2>
+      <ul id="listaTransacoes"></ul>
+    </section>
+              <!-- LISTA DE TRANSAÇÕES -->
+
+
+  </main>
+
+  <!-- BOTÃO FLUTUANTE -->
+  <button id="btnAddFlutuante" class="btn-flutuante">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+
+  <script src="script.js"></script>
+  <script src="perfil.js"></script>
+</body>
+</html>

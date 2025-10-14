@@ -1,0 +1,600 @@
+/* =============================
+   BANCO GUITSLAFF - STYLE FINAL
+============================= */
+
+/* === RESET & VARIÁVEIS === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --text: #222;
+  --primary: #007bff;
+  --primary-dark: #0056b3;
+  --accent-green: #2ecc71;
+  --accent-red: #e74c3c;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* === BASE === */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", system-ui, Segoe UI, Roboto, Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* === HEADER === */
+header {
+  background: linear-gradient(90deg, var(--primary), #00a8ff);
+  color: #fff;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 3px 12px var(--shadow);
+}
+
+header h1 {
+  font-size: 1.4rem;
+  letter-spacing: 0.6px;
+}
+
+/* === BOTÃO DE TEMA === */
+#modoTema {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  z-index: 60;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* === CONTAINER PRINCIPAL === */
+main.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 22px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* === CARD PADRÃO === */
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+  .btn-toggle-filtros{
+    display: none;
+  }
+/* === SALDO === */
+.saldo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+}
+
+.saldo-card h2 {
+  color: var(--primary);
+}
+
+#saldo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  margin-top: 8px;
+}
+
+.saldo-resumo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.saldo-resumo .entrada {
+  color: var(--accent-green);
+}
+
+.saldo-resumo .saida {
+  color: var(--accent-red);
+}
+
+/* === GRÁFICO === */
+.card canvas {
+  display: block;
+  margin: 12px auto;
+  max-width: 320px;
+  width: 100%;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.btn-grafico {
+  background: var(--accent-green);
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-grafico:hover {
+  opacity: 0.95;
+}
+
+/* === FORMULÁRIO DE TRANSAÇÃO === */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-section input,
+.form-section select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  width: 100%;
+}
+
+.form-section button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* === FILTROS === */
+.filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.filtros .filtros-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  align-items: end;
+}
+
+.filtros label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.filtros input[type="date"],
+.filtros select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  width: 100%;
+  background: #fff;
+}
+
+.btn-filtrar {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* === BOTÃO MOSTRAR FILTROS (MOBILE) === */
+.toggle-filtros-btn {
+  display: none;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+/* === LISTA DE TRANSAÇÕES === */
+#listaTransacoes {
+  list-style: none;
+  padding: 0;
+  margin-top: 6px;
+}
+
+#listaTransacoes li {
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #e9eef2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+#listaTransacoes li small {
+  color: #888;
+  font-size: 0.85rem;
+  margin-left: 8px;
+}
+
+/* === BOTÃO FLUTUANTE === */
+#btnAddFlutuante {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+
+/* === ALERTA (TOAST) === */
+.alerta {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  background: var(--accent-green);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.25s;
+}
+
+.alerta.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   MODO ESCURO
+=========================== */
+body.dark {
+  --bg: #0f1720;
+  --card: #111827;
+  --text: #e6eef6;
+  --shadow: rgba(0, 0, 0, 0.6);
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.dark .card {
+  background: var(--card);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+body.dark #listaTransacoes li {
+  background: #151920;
+  border-left: 4px solid rgba(255, 255, 255, 0.03);
+}
+
+body.dark .filtros input[type="date"],
+body.dark .filtros select {
+  background: #101216;
+  color: #e6eef6;
+  border: 1px solid #1d2630;
+}
+
+body.dark #btnAddFlutuante {
+  background: var(--primary-dark);
+}
+
+body.dark #modoTema {
+  background: var(--primary-dark);
+  color: #fff;
+}
+/* ===========================
+   PERFIL / SAUDAÇÃO - ESTILOS
+   =========================== */
+
+.perfil-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  right: 74px; /* deixa espaço para o botão de tema (que está em right:14px) */
+  top: 12px;
+  cursor: pointer;
+  z-index: 80;
+  user-select: none;
+}
+
+.perfil-header .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.perfil-header .nome-usuario {
+  font-weight: 600;
+  color: var(--card) /* placeholder to be overridden */;
+  color: #fff; /* fallback; will be adjusted by JS for visibility if needed */
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.95rem;
+}
+
+/* se quiser que a saudação ocupe menos espaço em mobile */
+@media (max-width: 728px) {
+  .perfil-header .nome-usuario { display: none; }
+  .perfil-header { right: 64px; }
+}
+
+/* ===== mini modal / dropdown do perfil ===== */
+.perfil-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.perfil-modal {
+  width: 320px;
+  max-width: calc(100% - 40px);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  transform: translateY(-8px);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+  opacity: 0;
+}
+
+/* mostra */
+.perfil-modal-overlay.show { display: flex; }
+.perfil-modal-overlay.show .perfil-modal { opacity: 1; transform: translateY(0); }
+
+/* conteudo do modal */
+.perfil-modal .top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.perfil-modal .top .avatar {
+  width: 52px;
+  height: 52px;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.perfil-modal h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.perfil-modal p {
+  margin: 6px 0 0 0;
+  color: #7b8a99;
+  font-size: 0.9rem;
+}
+
+/* botoes */
+.perfil-modal .acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+.perfil-modal .acoes button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.perfil-modal .acoes .editar {
+  background: linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color: #fff;
+}
+.perfil-modal .acoes .sair {
+  background: #f2f4f7;
+  color: #333;
+  border: 1px solid #e0e6ee;
+}
+
+/* adaptações modo escuro */
+body.dark .perfil-modal {
+  background: #0f1720;
+  color: #e6eef6;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+}
+body.dark .perfil-modal .acoes .sair {
+  background: #1b2130;
+  color: #e6eef6;
+  border: 1px solid #262b35;
+}
+
+/* botão fechar (pequeno X no topo direito do modal) */
+.perfil-modal .fechar {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+@media (max-width: 900px) {
+  main.container {
+    width: 94%;
+  }
+}
+
+/* === BOTÃO FILTRO (SÓ MOBILE) === */
+@media (max-width: 768px) {
+  .toggle-filtros-btn {
+    display: block;
+    margin-left: 15px;
+    width: 91%;
+  }
+  .filtros {
+    display: none;
+  }
+  .filtros.show {
+    display: flex;
+  }
+  .btn-toggle-filtros{
+    display: none;
+
+  }
+
+}
+header h1 {
+  font-size: 1.4rem;
+  letter-spacing: 0.6px;
+  margin-right: 8rem;
+}
+/* ====== DESKTOP ====== */
+@media (min-width: 769px) {
+  .toggle-filtros-btn {
+    display: none !important;
+    margin-left: 15px;
+    width: 95%;
+  }
+  .filtros {
+    display: flex !important;
+  }
+}
+/* ===== Ajustes no perfil em telas pequenas ===== */
+@media (max-width: 520px) {
+  .perfil-header {
+    right: px; /* antes estava 64px — aproxima um pouco do centro */
+    top: 10px;
+    gap: 6px;
+    margin-right: 1rem;
+  }
+header h1{
+  font-size: 1.4rem;
+
+}
+  /* oculta o nome, mantém só o avatar (já está feito, reforçando aqui) */
+  .perfil-header .nome-usuario {
+    display: none;
+  }
+
+  /* diminui levemente o tamanho do avatar */
+  .perfil-header .avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+    .filtros {
+    display: none;
+  }
+}
+/* === BOTÃO EXCLUIR TRANSAÇÃO === */
+.btn-excluir {
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  font-size: 1.1rem;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.2s;
+}
+
+.btn-excluir:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* modo escuro */
+body.dark .btn-excluir {
+  color: #ff6b6b;
+}
+#listaTransacoes li.removendo {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.btn-excluir {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px 6px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.btn-excluir:hover {
+  color: #e74c3c;
+  transform: scale(1.15);
+}
+
+
+
